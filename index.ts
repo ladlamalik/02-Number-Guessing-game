@@ -38,7 +38,7 @@ while (play) {
         type: 'number',
       },
     ]);
-
+     // begin of the logic
     if (answers.meraGuess == actualAnswer) {
       console.log(chalk.green.bold('Hurray! You Guessed it right. Game Ended'));
       totalTries = 0;
@@ -60,7 +60,7 @@ while (play) {
 
     totalTries--;
   }
-
+   // asking the player, if they wants to play again
   const playAgainAnswer: PLayAgainAnswerType = await inquirer.prompt([
     {
       name: 'playAgain',
