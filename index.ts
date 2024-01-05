@@ -7,13 +7,11 @@ import chalkAnimation from 'chalk-animation';
 // console.log("Hello World");
 
 console.log(
-  chalk.white.bgGreen('>>>> Game: Lets guess a number between 1 and 10 ')
+  chalk.bgMagenta.bold('>>>> Game: Lets guess a number between 1 and 10 ')
 );
-
 
 // creating a random number between 1 and 10
 let randNum = Math.floor(Math.random() * 10 + 1);
-
 
 let actualAnswer: number = randNum;
 let totalTries: number = 3;
@@ -34,16 +32,18 @@ while (play) {
     const answers: AnswerTypes = await inquirer.prompt([
       {
         name: 'meraGuess',
-        message: 'Number Dalo bhai:',
+        message: 'Enter Your Number:',
         type: 'number',
       },
     ]);
-     // begin of the logic
+    // begin of the logic
     if (answers.meraGuess == actualAnswer) {
-      console.log(chalk.green.bold('Hurray! You Guessed it right. Game Ended'));
+      console.log(
+        chalk.bgMagenta.bold(' Hurray! You Guessed it right. Game Ended ')
+      );
       totalTries = 0;
     } else {
-      console.log(chalk.red.bold('You Guessed it wrong'));
+      console.log(chalk.bgRed('You Guessed it wrong'));
       if (actualAnswer > answers.meraGuess)
         console.log(
           chalk.yellow(`The number is greater than ${answers.meraGuess}`)
@@ -54,13 +54,15 @@ while (play) {
         );
       }
       console.log(
-        chalk.yellow(`You Have ${chalk.white.bold(totalTries - 1)} tries left`)
+        chalk.yellow(
+          `You Have ${chalk.bold.white(totalTries - 1)} tries left`
+        )
       );
     }
 
     totalTries--;
   }
-   // asking the player, if they wants to play again
+  // asking the player, if they wants to play again
   const playAgainAnswer: PLayAgainAnswerType = await inquirer.prompt([
     {
       name: 'playAgain',
@@ -77,7 +79,7 @@ while (play) {
     randNum = Math.floor(Math.random() * 10 + 1);
     actualAnswer = randNum;
   } else {
-    console.log('Exiting Game....');
+    console.log(chalk.bold.blueBright(' Exiting Game.... '));
     play = false;
   }
 }
