@@ -43,19 +43,19 @@ while (play) {
       );
       totalTries = 0;
     } else {
-      console.log(chalk.bgRed('You Guessed it wrong'));
+      console.log(chalk.bgRed(' You Guessed it wrong '));
       if (actualAnswer > answers.meraGuess)
         console.log(
-          chalk.yellow(`The number is greater than ${answers.meraGuess}`)
+          chalk.yellow(` The number is greater than ${answers.meraGuess} `)
         );
       else {
         console.log(
-          chalk.yellow(`The number is lower than ${answers.meraGuess}`)
+          chalk.yellow(` The number is lower than ${answers.meraGuess} `)
         );
       }
       console.log(
         chalk.yellow(
-          `You Have ${chalk.bold.white(totalTries - 1)} tries left`
+          ` You Have ${chalk.bold.white(totalTries - 1)} tries left `
         )
       );
     }
